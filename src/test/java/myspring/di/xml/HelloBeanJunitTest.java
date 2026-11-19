@@ -24,12 +24,18 @@ public class HelloBeanJunitTest {
 		assertSame(helloById, helloByType);
 		
 		//setName() Injection을 검증하기 - 값 비교
+		assertEquals("Hello 스프링", helloByType.sayHello());
+		
+		//setPrinter() Injection 을 검증하기
 		helloByType.print();
 		
 		// 투스트링? 가져와야 한다고 함
 		// 3. StringPrinter Bean 요청하기
 		// 스트링 프린터의 상위 클래스인 프린터 클래스를 요청해도 됨(다형성)
 		Printer printer = factory.getBean("strPrinter", Printer.class);
+		
+		assertEquals("Hello 스프링", printer.toString());
+		
 	}
 	
 }
