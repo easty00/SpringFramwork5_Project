@@ -1,17 +1,28 @@
 package myspring.di.xml;
 
 // Assertions 클래스의 모든 static 메서드를 임포트한다
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class HelloBeanJunitTest {
 	
+	BeanFactory factory;
+	
+	@BeforeEach
+	void container() {
+		//1. Bean Container 객체생성
+		factory = new GenericXmlApplicationContext("classpath:spring-beans.xml");
+		
+	}
+	
 	@Test
 	void hello() {
-		//1. Bean Container 객체생성
-		BeanFactory factory = new GenericXmlApplicationContext("classpath:spring-beans.xml");
+
 		//2. Hello Bean을 Container 에게 요청하기. Bean 의 아이디를 기준으로 Bean 요청
 		Hello helloById = (Hello)factory.getBean("hello");
 		//2-1 Hello Bean을 Container 에게 요청하기. Bean 의 아이디와 타입을 기준으로 Bean 요청. 이쪽을 더 많이 씀.
