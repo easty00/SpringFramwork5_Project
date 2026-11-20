@@ -22,14 +22,21 @@ public class AnnotatedHelloBeanTest {
 	PrinterBean stringPrinter;
 	
 	@Autowired
-	@Qualifier("consolePrinter")
-	PrinterBean printerCons;
+	@Qualifier("stringPrinter")
+	PrinterBean printer;
 	
 	@Resource(name = "stringPrinter")
 	PrinterBean printerResource;
 	
 	@Autowired
 	HelloBeanCons helloCons;
+	
+	@Test
+	void hello_constructor() {
+		assertEquals("Hello 어노테이션생성자", helloCons.sayHello());
+		helloCons.print();
+		
+	}	
 	
 	@Test @Disabled
 	void hello() {
@@ -40,8 +47,5 @@ public class AnnotatedHelloBeanTest {
 		assertEquals("Hello 어노테이션", printerResource.toString());
 	}
 	
-	@Test
-	void hello_constructor() {
-		assertEquals("Hello 어노테이션생성자", helloCons.sayHello());
-	}
+
 }
