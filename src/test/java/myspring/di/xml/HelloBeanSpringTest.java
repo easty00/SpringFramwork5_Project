@@ -1,6 +1,8 @@
 package myspring.di.xml;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import javax.annotation.Resource;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,6 +20,9 @@ public class HelloBeanSpringTest {
 	@Autowired
 	@Qualifier("helloCons")
 	Hello hello2;
+	
+	@Resource(name = "helloCons")
+	Hello hello3;
 	
 	@Test
 	void helloBean() {
