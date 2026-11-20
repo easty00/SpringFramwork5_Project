@@ -33,7 +33,8 @@ public class HelloBeanCons {
 	public List<String> getNames() {
 		return this.names;
 	}
-
+	
+	@Value("#{'${app.namelist}'.split(',')}")
 	public void setNames(List<String> list) {
 		this.names = list;
 	}
