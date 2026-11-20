@@ -16,11 +16,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 public class HelloBeanSpringTest {
 	@Autowired
 	Hello hello;
-	
+	// @Autowired : Bean 의 Class Type 로 의존하는 객체를 찾는 방식
 	@Autowired
 	@Qualifier("helloCons")
 	Hello hello2;
 	
+	// @Resource : Bean의 name(id) 값으로 의존 객체를 찾는 방식 
 	@Resource(name = "helloCons")
 	Hello hello3;
 	
@@ -28,6 +29,9 @@ public class HelloBeanSpringTest {
 	void helloBean() {
 		assertEquals("Hello 스프링", hello.sayHello());
 		
-		assertEquals("", hello2.sayHello());
+		assertEquals("Hello 생성자", hello2.sayHello());
+		
+		assertEquals("Hello 생성자", hello3.sayHello());
+
 	}
 }
