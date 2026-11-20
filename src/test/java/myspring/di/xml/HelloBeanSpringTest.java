@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import javax.annotation.Resource;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class HelloBeanSpringTest {
 	@Resource(name = "helloCons")
 	Hello hello3;
 	
-	@Test
+	@Test @Disabled
 	void helloBean() {
 		assertEquals("Hello 스프링", hello.sayHello());
 		
@@ -35,7 +36,16 @@ public class HelloBeanSpringTest {
 		
 		// 콘솔프린터가 호출됨
 		hello2.print();
+	}	
+	
+	// 반복문 돌리기
+	// getNames 를  Hello 에서 불러오기
+	// 리스트용 테스트
+	@Test 
+	void list() {
+		for(String value:hello2.getNames()) {
+			System.out.println(value);
+		}
 		
-		// 
 	}
 }
