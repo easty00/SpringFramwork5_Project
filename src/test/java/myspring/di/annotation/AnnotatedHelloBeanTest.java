@@ -32,7 +32,6 @@ public class AnnotatedHelloBeanTest {
 	HelloBeanCons helloCons;
 	
 	@Test @Disabled
-	
 	void hello() {
 		assertEquals("Hello 어노테이션", hello.sayHello());
 		hello.print();
@@ -42,7 +41,7 @@ public class AnnotatedHelloBeanTest {
 	}
 	
 	@Test
-	void hello_constructor{
+	void hello_constructor() {
 		assertEquals("Hello 어노테이션생성자", helloCons.sayHello());
 	}
 }
