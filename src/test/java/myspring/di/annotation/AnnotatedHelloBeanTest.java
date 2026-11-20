@@ -22,8 +22,8 @@ public class AnnotatedHelloBeanTest {
 	PrinterBean stringPrinter;
 	
 	@Autowired
-	@Qualifier("stringPrinter")
-	PrinterBean printer;
+	@Qualifier("consolePrinter")
+	PrinterBean printerCons;
 	
 	@Resource(name = "stringPrinter")
 	PrinterBean printerResource;
