@@ -35,5 +35,7 @@ public class HelloBeanSpringTest {
 		
 		// 콘솔프린터가 호출됨
 		hello2.print();
+		
+		// 
 	}
 }
