@@ -32,6 +32,8 @@ public class HelloBeanSpringTest {
 		assertEquals("Hello 생성자", hello2.sayHello());
 		
 		assertEquals("Hello 생성자", hello3.sayHello());
-
+		
+		// 콘솔프린터가 호출됨
+		hello2.print();
 	}
 }
