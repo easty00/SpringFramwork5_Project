@@ -1,3 +1,5 @@
+package myspring.di.xml.config;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import javax.annotation.Resource;

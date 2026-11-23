@@ -13,7 +13,7 @@ import myspring.di.xml.Printer;
 import myspring.di.xml.StringPrinter;
 
 @Configuration
-@PropertySource(value = "classpath: values.properties")
+@PropertySource(value = "classpath:values.properties")
 public class HelloConfig {
 	
 	// 이전엔 달러로 감쌌었는데 이번엔 좀 다름
