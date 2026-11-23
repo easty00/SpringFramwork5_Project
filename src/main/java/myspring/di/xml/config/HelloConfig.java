@@ -32,7 +32,7 @@ public class HelloConfig {
 	}
 	
 	@Bean
-	@Scope
+	@Scope(value="singleton")
 	public Hello hello() {
 		Hello hello = new Hello();
 		//hello.setName("스프링") << 이지만 하드코딩임. 변동이 많은 값을 env 로 따로 뺀것.
