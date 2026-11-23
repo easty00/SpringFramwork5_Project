@@ -41,4 +41,11 @@ public class HelloConfig {
 		return hello;
 	}
 	
+	@Bean
+	public Hello helloCons() {
+		String consName = env.getProperty("app.xmlcons.name");
+		// Printer printer = consolPrinter();
+		Hello hello = new Hello(consName, consolPrinter());
+		return hello;
+	}
 }
