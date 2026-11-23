@@ -2,6 +2,8 @@ package myspring.di.annotation.config;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import javax.annotation.Resource;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,21 +12,28 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import myspring.di.annotation.HelloBean;
+import myspring.di.annotation.PrinterBean;
 
 /*
- * 로더 클래스는 컨테이너 클래스를 로딩해주는 역할을 함 
+ * AnnotationConfigContextLoader 로더 클래스는 
+ * 변경된 AnnotationConfigApplicationContext 컨테이너 클래스를 로딩 해주는 역할을 한다. 
  */
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = HelloBeanConfig.class,
-		loader = AnnotationConfigContextLoader.class)
+		loader = AnnotationConfigContextLoader.class) //로더 5부터는 꼭 쓰지 않아도 되지만 공부목적으로 언급
 public class AnnotatedHelloBeanConfigTest {
 	
 	@Autowired
 	HelloBean hello;
 	
+	@Resource(name = "stringPrinter")
+	PrinterBean printerResource;
+	
 	@Test
 	void hello() {
 		assertEquals("Hello 어노테이션", hello.sayHello());
+		hello.print();
+		assertEquals("Hello 어노테이션", printerResource.toString());
 	}
 
 }
